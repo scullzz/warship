@@ -101,9 +101,9 @@ public class WarShip {
         int tmp_ship = 0;
         while(tmp_ship < ship_count){
             do {
-                x = (int) (Math.random() * 11);
-                y = (int) (Math.random() * 11);
-
+                x = (int) (Math.random() * 10);
+                y = (int) (Math.random() * 10);
+                System.out.println("X coordinate " + x + " Y coordinate " + y);
                 tmp_x = x;
                 tmp_y = y;
 
@@ -111,7 +111,7 @@ public class WarShip {
 
                 limit = true;
                 for (int i = 0; i < ship_palub; i++) {
-                    if (x < 0 || y < 0 || x >= array1.length || y >= array1.length) {
+                    if (x < 0 || y < 0 || x >= array1.length - 1 || y >= array1.length - 1) {
                         limit = false;
                         break;
                     }
@@ -169,7 +169,7 @@ public class WarShip {
             tmp_ship++;
 
         }
-        return array1[array1.length][array1.length];
+        return array1[array1.length-1][array1.length-1];
     }
     // тоже самое и тут
     static int second_limit_ship(int[][] array3, int ship_palub, int ship_count, int ships[]){
@@ -399,7 +399,7 @@ public class WarShip {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
         int[][] a1 = new int[10][10];
         int[][] a2 = new int[10][10];
         int[][] a3 = new int[10][10];
