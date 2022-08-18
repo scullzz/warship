@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class WarShip {
     static int sh = 1;
 
-    static void help_create(int[][] array1){
+    public static void help_create(int[][] array1){
         for(int i =0; i < array1.length; i++){
             for(int j = 0; j< array1[i].length; j++){
                 if(array1[i][j] == 0){
@@ -16,10 +16,11 @@ public class WarShip {
                     System.out.println(array1[i][j]);
                 }
             }
+            System.out.println("\n");
         }
     }
 
-    static void second_help_create(int[][] array3){
+    public static void second_help_create(int[][] array3){
         for(int i =0; i< array3.length; i++){
             for(int j = 0; j < array3[i].length; i++){
                 if(array3[i][j] == 0){
@@ -32,66 +33,63 @@ public class WarShip {
                     System.out.println(array3[i][j]);
                 }
             }
+            System.out.println("\n");
         }
     }
 
-    static void create(int[][] array1, int array2[][]){
+    public static void create(int[][] array1, int[][] array2){
         System.out.println(" ");
-        for(int i = 0; i < array1.length; i++){
+        for(int i = 0; i < 10; i++){
             System.out.println(i);
         }
         System.out.println("\n") ;
-        for(int i =0; i< array1.length; i++){
+        for(int i =0; i< 10; i++) {
             System.out.println(i);
-            for(int j = 0; j < array1[i].length; j++){
-                if(array2[i][j] == 1){
-                    if(array1[i][j] == 0){
+            for (int j = 0; j < 10; j++) {
+                if (array2[i][j] == 1) {
+                    if (array1[i][j] == 0) {
                         System.out.println("~");
-                    }
-                    else if(array1[i][j] == -1){
+                    } else if (array1[i][j] == -1) {
                         System.out.println("X");
-                    }
-                    else{
+                    } else {
                         System.out.println(array1[i][j]);
                     }
-                }
-                else{
+                } else {
                     System.out.println(" ");
                 }
-                System.out.println("\n");
             }
+            System.out.println("\n");
         }
+
     }
 
-    static void second_create(int[][] array3, int[][] array4){
+    public static void second_create(int[][] array3, int[][] array4){
         System.out.println(" ");
-        for(int i =0; i < array3.length; i++){
+        for(int i =0; i < 10; i++){
             System.out.print(i);
         }
         System.out.print("\n");
-        for(int i =0; i < array3.length; i++){
+        for(int i =0; i < 10; i++){
             System.out.println(i);
-            for(int j = 0; j < array3[i].length; j++){
-                if(array4[i][j] == 1){
-                    if(array3[i][j] == 0){
+            for(int j = 0; j < 10; j++) {
+                if (array4[i][j] == 1) {
+                    if (array3[i][j] == 0) {
                         System.out.println("~");
-                    }
-                    else if(array3[i][j] == -1){
+                    } else if (array3[i][j] == -1) {
                         System.out.println("X");
-                    }
-                    else {
+                    } else {
                         System.out.println(array3[i][j]);
                     }
-                }
-                else{
+                } else {
                     System.out.println(" ");
                 }
-                System.out.println("\n");
             }
+            System.out.println("\n");
         }
+
     }
     //тут идет проверка границ карты и при помощи рандома он вставляет направление чтобы вставить кусок корабля и в массив кораблики записываются палубы
-    static int limit_ship(int[][] array1, int ship_palub, int ship_count, int[] ships){
+    public static int limit_ship(int[][] array1, int ship_palub, int ship_count, int[] ships){
         boolean limit = true;
         int x;
         int y;
@@ -101,29 +99,17 @@ public class WarShip {
         int tmp_ship = 0;
         while(tmp_ship < ship_count){
             do {
-                x = (int) (Math.random() * 11);
-                y = (int) (Math.random() * 11);
+                x = (int) (Math.random() * 10);
+                y = (int) (Math.random() * 10);
 
                 tmp_x = x;
                 tmp_y = y;
 
-                dir = (int) (Math.random() * 5);
+                dir = (int) (Math.random() * 4);
 
                 limit = true;
                 for (int i = 0; i < ship_palub; i++) {
                     if (x < 0 || y < 0 || x >= array1.length || y >= array1.length) {
-                        limit = false;
-                        break;
-                    }
-                    if (array1[x][y] >= 1||
-                            array1[x][y + 1] >= 1 ||
-                            array1[x][y-1] >= 1 ||
-                            array1[x + 1][y] >= 1 ||
-                            array1[x + 1][y + 1] >= 1 ||
-                            array1[x + 1][y - 1] >= 1 ||
-                            array1[x - 1][y] >= 1 ||
-                            array1[x - 1][y + 1] >= 1 ||
-                            array1[x - 1][y - 1] >= 1) {
                         limit = false;
                         break;
                     }
@@ -169,10 +155,10 @@ public class WarShip {
             tmp_ship++;
 
         }
-        return array1[array1.length][array1.length];
+        return array1[array1.length-1][array1.length-1];
     }
     // тоже самое и тут
-    static int second_limit_ship(int[][] array3, int ship_palub, int ship_count, int ships[]){
+    public static int second_limit_ship(int[][] array3, int ship_palub, int ship_count, int[] ships){
         boolean limit = true;
         int x;
         int y;
@@ -182,30 +168,17 @@ public class WarShip {
         int tmp_ship = 0;
         while (tmp_ship < ship_count) {
             do {
-                x = (int)(Math.random() * 11);
-                y = (int)(Math.random() * 11);
+                x = (int)(Math.random() * 10);
+                y = (int)(Math.random() * 10);
 
                 tmp_x = x;
                 tmp_y = y;
 
-                dir = (int)(Math.random() * 11);
+                dir = (int)(Math.random() * 4);
 
                 limit = true;
                 for (int i = 0; i < ship_palub; i++) {
                     if (x < 0 || y < 0 || x >= array3.length || y >= array3.length) {
-                        limit = false;
-                        break;
-                    }
-                    if (array3[x][y] >= 1 ||
-                            array3[x][y + 1] >= 1 ||
-                            array3[x][y - 1] >= 1 ||
-                            array3[x + 1][y] >= 1 ||
-                            array3[x + 1][y + 1] >= 1 ||
-                            array3[x + 1][y - 1] >= 1 ||
-                            array3[x - 1][y] >= 1 ||
-                            array3[x - 1][y + 1] >= 1 ||
-                            array3[x - 1][y - 1] >= 1)
-                    {
                         limit = false;
                         break;
                     }
@@ -222,7 +195,8 @@ public class WarShip {
                         y--;
                     }
                 }
-            } while (limit != true);
+            }
+            while (limit != true);
 
             if (limit == true) {
                 x = tmp_x;
@@ -251,33 +225,33 @@ public class WarShip {
             tmp_ship++;
         }
 
-        return array3[array3.length][array3.length];
+        return array3[array3.length-1][array3.length-1];
     }
-    //определяется количетсво кораблей и палуб
-    static int create_ship(int array1[][], int ships[]) {
+    //определяется количетсво кораблей и палу
+    public static int create_ship(int[][] array1, int[] ships){
+        sh = 1;
         limit_ship(array1, 4, 1, ships);
         limit_ship(array1, 3, 2, ships);
         limit_ship(array1, 2, 3, ships);
         limit_ship(array1, 1, 3, ships);
-        return array1[array1.length][array1.length];
+        return array1[array1.length-1][array1.length-1];
     }
-
-    static int  second_create_ship(int array3[][], int ships[]) {
+    public static int  second_create_ship(int[][] array3, int[] ships) {
         sh = 1;
         second_limit_ship(array3, 4, 1, ships);
         second_limit_ship(array3, 3, 2, ships);
         second_limit_ship(array3, 2, 3, ships);
         second_limit_ship(array3, 1, 3, ships);
-        return array3[array3.length][array3.length];
+        return array3[array3.length-1][array3.length-1];
     }
     //карта
-    static void result(int array1[][], int array2[][], int array3[][], int array4[][]) {
+    public static void result(int[][] array1, int[][] array2, int[][] array3, int[][] array4) {
         create(array1, array2);
         System.out.println("\n");
         second_create(array3, array4);
     }
     //сама игра очередь ходов попадение уничтожение
-    static void GAME11(int array1[][], int array2[][], int array3[][], int array4[][], int ships[]) throws InterruptedException {
+    public static void GAME11(int[][] array1, int[][] array2, int[][] array3, int[][] array4, int[] ships)  {
         boolean game = false;
         int x;
         int y;
@@ -303,8 +277,7 @@ public class WarShip {
                         System.out.println("You hit the ship\n");
                     }
                     array1[x][y] = -1;
-                }
-                else {
+                } else {
                     System.out.println("Miss\n");
                 }
 
@@ -319,21 +292,20 @@ public class WarShip {
                     quit = in.nextInt();
                     if (quit == 0) {
                         System.out.println("Cool\n");
-                    }
-                    else if (quit == 1) {
+                    } else if (quit == 1) {
                         break;
                     }
                 }
 
                 boolean game_over = false;
                 for (i = 0; i < array1.length; i++) {
-                    for (int j = 0; j < array1.length; j++) {
+                    for (int j = 0; j < array1[i].length; j++) {
                         if (array1[i][j] == 1) {
                             game_over = true;
                         }
                     }
                 }
-                if (game_over == false){
+                if (game_over == false) {
                     System.out.println("First player - Win\n");
                     break;
                 }
@@ -350,15 +322,13 @@ public class WarShip {
                     ships[array3[x][y]]--;
                     if (ships[array3[x][y]] <= 0) {
                         System.out.println("The ship was destroyed\n");
-                    }
-                    else {
+                    } else {
                         System.out.println("You hit the ship\n");
                     }
 
                     array3[x][y] = -1;
 
-                }
-                else {
+                } else {
                     System.out.println("Miss\n");
                 }
 
@@ -374,8 +344,7 @@ public class WarShip {
                     quit = in.nextInt();
                     if (quit == 0) {
                         System.out.println("cool\n");
-                    }
-                    else if (quit == 1) {
+                    } else if (quit == 1) {
                         break;
                     }
                 }
@@ -383,7 +352,7 @@ public class WarShip {
                 boolean game_over = false;
                 for (i = 0; i < array1.length; i++) {
                     for (int j = 0; j < array1.length; j++) {
-                        if (array3[i][j] == 1) {
+                        if (array1[i][j] == 1) {
                             game_over = true;
                         }
                     }
@@ -393,8 +362,6 @@ public class WarShip {
                     break;
                 }
             }
-
-            Thread.sleep(500);
 
         }
     }
