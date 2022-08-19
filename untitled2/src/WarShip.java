@@ -7,16 +7,16 @@ public class WarShip {
         for(int i =0; i < array1.length; i++){
             for(int j = 0; j< array1[i].length; j++){
                 if(array1[i][j] == 0){
-                    System.out.println("~");
+                    System.out.print("~");
                 }
                 else if(array1[i][j] == -1){
-                    System.out.println("X");
+                    System.out.print("X");
                 }
                 else{
-                    System.out.println(array1[i][j]);
+                    System.out.print(array1[i][j]);
                 }
             }
-            System.out.println("\n");
+            System.out.print("\n");
         }
     }
 
@@ -24,67 +24,67 @@ public class WarShip {
         for(int i =0; i< array3.length; i++){
             for(int j = 0; j < array3[i].length; i++){
                 if(array3[i][j] == 0){
-                    System.out.println("~");
+                    System.out.print("~");
                 }
                 else if (array3[i][j] == -1) {
-                    System.out.println("X");
+                    System.out.print("X");
                 }
                 else{
-                    System.out.println(array3[i][j]);
+                    System.out.print(array3[i][j]);
                 }
             }
-            System.out.println("\n");
+            System.out.print("\n");
         }
     }
 
     public static void create(int[][] array1, int[][] array2){
-        System.out.println(" ");
+        System.out.print(" ");
         for(int i = 0; i < 10; i++){
-            System.out.println(i);
+            System.out.print(i);
         }
-        System.out.println("\n") ;
+        System.out.print("\n") ;
         for(int i =0; i< 10; i++) {
-            System.out.println(i);
+            System.out.print(i);
             for (int j = 0; j < 10; j++) {
                 if (array2[i][j] == 1) {
                     if (array1[i][j] == 0) {
-                        System.out.println("~");
+                        System.out.print("~");
                     } else if (array1[i][j] == -1) {
-                        System.out.println("X");
+                        System.out.print("X");
                     } else {
-                        System.out.println(array1[i][j]);
+                        System.out.print(array1[i][j]);
                     }
                 } else {
-                    System.out.println(" ");
+                    System.out.print(" ");
                 }
             }
-            System.out.println("\n");
+            System.out.print("\n");
         }
 
     }
 
     public static void second_create(int[][] array3, int[][] array4){
-        System.out.println(" ");
+        System.out.print(" ");
         for(int i =0; i < 10; i++){
             System.out.print(i);
         }
         System.out.print("\n");
         for(int i =0; i < 10; i++){
-            System.out.println(i);
+            System.out.print(i);
             for(int j = 0; j < 10; j++) {
                 if (array4[i][j] == 1) {
                     if (array3[i][j] == 0) {
-                        System.out.println("~");
+                        System.out.print("~");
                     } else if (array3[i][j] == -1) {
-                        System.out.println("X");
+                        System.out.print("X");
                     } else {
-                        System.out.println(array3[i][j]);
+                        System.out.print(array3[i][j]);
                     }
                 } else {
-                    System.out.println(" ");
+                    System.out.print(" ");
                 }
             }
-            System.out.println("\n");
+            System.out.print("\n");
         }
 
     }
@@ -247,7 +247,7 @@ public class WarShip {
     //карта
     public static void result(int[][] array1, int[][] array2, int[][] array3, int[][] array4) {
         create(array1, array2);
-        System.out.println("\n");
+        System.out.print("\n");
         second_create(array3, array4);
     }
     //сама игра очередь ходов попадение уничтожение
@@ -260,8 +260,8 @@ public class WarShip {
 
             if (i % 2 == 0) {
 
-                System.out.println("First player's move\n");
-                System.out.println("Enter your cordinates\n");
+                System.out.print("First player's move\n");
+                System.out.print("Enter your cordinates\n");
                 Scanner in = new Scanner(System.in);
                 System.out.print(" ");
                 x = in.nextInt();
@@ -271,27 +271,27 @@ public class WarShip {
                 if (array1[x][y] >= 1) {
                     ships[array1[x][y]]--;
                     if (ships[array1[x][y]] <= 0) {
-                        System.out.println("The ship was destroyed\n");
+                        System.out.print("The ship was destroyed\n");
                     }
                     else {
-                        System.out.println("You hit the ship\n");
+                        System.out.print("You hit the ship\n");
                     }
                     array1[x][y] = -1;
                 } else {
-                    System.out.println("Miss\n");
+                    System.out.print("Miss\n");
                 }
 
                 array2[x][y] = 1;
 
                 if (x == 33 && y == 33) {
-                    System.out.println("You wanna quit the game\n");
+                    System.out.print("You wanna quit the game\n");
                     int quit;
-                    System.out.println("0 - stay)\n");
-                    System.out.println("1 - quit\n");
+                    System.out.print("0 - stay)\n");
+                    System.out.print("1 - quit\n");
                     System.out.print("Input a digit: ");
                     quit = in.nextInt();
                     if (quit == 0) {
-                        System.out.println("Cool\n");
+                        System.out.print("Cool\n");
                     } else if (quit == 1) {
                         break;
                     }
@@ -306,13 +306,13 @@ public class WarShip {
                     }
                 }
                 if (game_over == false) {
-                    System.out.println("First player - Win\n");
+                    System.out.print("First player - Win\n");
                     break;
                 }
             }
             if (i % 2 == 1) {
-                System.out.println("Second plater's move\n");
-                System.out.println("Enter your cordinates\n");
+                System.out.print("Second plater's move\n");
+                System.out.print("Enter your cordinates\n");
                 Scanner in = new Scanner(System.in);
                 System.out.print("Input your digit: ");
                 x = in.nextInt();
@@ -321,29 +321,29 @@ public class WarShip {
                 if (array3[x][y] >= 1) {
                     ships[array3[x][y]]--;
                     if (ships[array3[x][y]] <= 0) {
-                        System.out.println("The ship was destroyed\n");
+                        System.out.print("The ship was destroyed\n");
                     } else {
-                        System.out.println("You hit the ship\n");
+                        System.out.print("You hit the ship\n");
                     }
 
                     array3[x][y] = -1;
 
                 } else {
-                    System.out.println("Miss\n");
+                    System.out.print("Miss\n");
                 }
 
                 array4[x][y] = 1;
 
                 if (x == 33 && y == 33) {
                     System.out.print("YOU WANNA QUIT THE GAME!!!\n");
-                    System.out.println("You wanna quit the game\n");
+                    System.out.print("You wanna quit the game\n");
                     int quit;
-                    System.out.println("0 - stay)\n");
-                    System.out.println("1 - quit\n");
+                    System.out.print("0 - stay)\n");
+                    System.out.print("1 - quit\n");
                     System.out.print("Input a digit: ");
                     quit = in.nextInt();
                     if (quit == 0) {
-                        System.out.println("cool\n");
+                        System.out.print("cool\n");
                     } else if (quit == 1) {
                         break;
                     }
@@ -358,7 +358,7 @@ public class WarShip {
                     }
                 }
                 if (game_over == false) {
-                    System.out.println("Second player - WIN\n");
+                    System.out.print("Second player - WIN\n");
                     break;
                 }
             }
