@@ -3,43 +3,6 @@ import java.util.Scanner;
 public class WarShip {
     static int sh = 1;
 
-<<<<<<< HEAD:untitled4/src/WarShip.java
-=======
-    public static void help_create(int[][] array1){
-        for(int i =0; i < array1.length; i++){
-            for(int j = 0; j< array1[i].length; j++){
-                if(array1[i][j] == 0){
-                    System.out.print("~");
-                }
-                else if(array1[i][j] == -1){
-                    System.out.print("X");
-                }
-                else{
-                    System.out.print(array1[i][j]);
-                }
-            }
-            System.out.print("\n");
-        }
-    }
-
-    public static void second_help_create(int[][] array3){
-        for(int i =0; i< array3.length; i++){
-            for(int j = 0; j < array3[i].length; i++){
-                if(array3[i][j] == 0){
-                    System.out.print("~");
-                }
-                else if (array3[i][j] == -1) {
-                    System.out.print("X");
-                }
-                else{
-                    System.out.print(array3[i][j]);
-                }
-            }
-            System.out.print("\n");
-        }
-    }
-
->>>>>>> 38dd93e1fbd76568206991f70f2e42b2ab5f0a83:untitled2/src/WarShip.java
     public static void create(int[][] array1, int[][] array2){
         System.out.print(" ");
         for(int i = 0; i < 10; i++){
@@ -276,23 +239,6 @@ public class WarShip {
 
                 array2[x][y] = 1;
 
-<<<<<<< HEAD:untitled4/src/WarShip.java
-=======
-                if (x == 33 && y == 33) {
-                    System.out.print("You wanna quit the game\n");
-                    int quit;
-                    System.out.print("0 - stay)\n");
-                    System.out.print("1 - quit\n");
-                    System.out.print("Input a digit: ");
-                    quit = in.nextInt();
-                    if (quit == 0) {
-                        System.out.print("Cool\n");
-                    } else if (quit == 1) {
-                        break;
-                    }
-                }
-
->>>>>>> 38dd93e1fbd76568206991f70f2e42b2ab5f0a83:untitled2/src/WarShip.java
                 boolean game_over = false;
                 for (i = 0; i < array2.length; i++) {
                     for (int j = 0; j < array2.length; j++) {
@@ -330,24 +276,6 @@ public class WarShip {
 
                 array4[x][y] = 1;
 
-<<<<<<< HEAD:untitled4/src/WarShip.java
-=======
-                if (x == 33 && y == 33) {
-                    System.out.print("YOU WANNA QUIT THE GAME!!!\n");
-                    System.out.print("You wanna quit the game\n");
-                    int quit;
-                    System.out.print("0 - stay)\n");
-                    System.out.print("1 - quit\n");
-                    System.out.print("Input a digit: ");
-                    quit = in.nextInt();
-                    if (quit == 0) {
-                        System.out.print("cool\n");
-                    } else if (quit == 1) {
-                        break;
-                    }
-                }
-
->>>>>>> 38dd93e1fbd76568206991f70f2e42b2ab5f0a83:untitled2/src/WarShip.java
                 boolean game_over = false;
                 for (i = 0; i < array4.length; i++) {
                     for (int j = 0; j < array4.length; j++) {
