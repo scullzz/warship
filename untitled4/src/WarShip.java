@@ -204,7 +204,7 @@ public class WarShip {
     public static void result(int[][] array1, int[][] array2, int[][] array3, int[][] array4) {
         create(array1, array2);
         System.out.print("\n");
-        second_create(array3, array4);
+        create(array3, array4);
     }
     //сама игра очередь ходов попадение уничтожение
     public static void GAME11(int[][] array1, int[][] array2, int[][] array3, int[][] array4, int[] ships)  {
@@ -333,9 +333,11 @@ public class WarShip {
                         y--;
                     }
                 }
-            }while(limit != true);
-
-            if(limit == true){
+            }while(!limit);//limit != true это не так пишется если хочешь проверить на false перед аттрибутом limit надо поставить знак ! это значит обратное значению limit
+            //то есть если limit = true со знаком ! будет false
+            //при использовании Boolean с If condition не надо прировнять, так как у тебя оно само всегда проверяет на true false,
+            //то есть любое приравнивание у тебя дает true false и войдет только при условии true (limit == true это заменяем на limit)
+            if(limit){
                 x = tmp_x;
                 y = tmp_y;
                 for(int i = 0; i < ship_palub; i++){
