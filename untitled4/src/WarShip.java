@@ -204,7 +204,7 @@ public class WarShip {
     public static void result(int[][] array1, int[][] array2, int[][] array3, int[][] array4) {
         create(array1, array2);
         System.out.print("\n");
-        second_create(array3, array4);
+        create(array3, array4);
     }
     //сама игра очередь ходов попадение уничтожение
     public static void GAME11(int[][] array1, int[][] array2, int[][] array3, int[][] array4, int[] ships)  {
@@ -338,7 +338,6 @@ public class WarShip {
                     }
                 }
             }while(!limit);
-
             if(limit){
                 x = tmp_x;
                 y = tmp_y;
