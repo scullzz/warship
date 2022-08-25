@@ -92,9 +92,9 @@ public class WarShip {
                         y--;
                     }
                 }
-            }while(limit != true);
+            }while(!limit);
 
-            if(limit == true){
+            if(limit){
                 x = tmp_x;
                 y = tmp_y;
                 for(int i = 0; i < ship_palub; i++){
@@ -161,9 +161,9 @@ public class WarShip {
                     }
                 }
             }
-            while (limit != true);
+            while (!limit);
 
-            if (limit == true) {
+            if (limit) {
                 x = tmp_x;
                 y = tmp_y;
                 for (int i = 0; i < ship_palub; i++) {
@@ -293,6 +293,10 @@ public class WarShip {
         }
     }
     public static void second_hand_ship(int[][] array3, int ship_palub, int ship_count, int[] ships){
+        System.out.print("if you push 0 the ship set to in right direction\n" +
+                "if you push 1 the ship set to in top down direction\n" +
+                "if you push 2 the ship set to in left direction\n" +
+                "if you push 3 the ship set to in upward direction\n");
         boolean limit = true;
         int x;
         int y;
@@ -333,9 +337,9 @@ public class WarShip {
                         y--;
                     }
                 }
-            }while(limit != true);
+            }while(!limit);
 
-            if(limit == true){
+            if(limit){
                 x = tmp_x;
                 y = tmp_y;
                 for(int i = 0; i < ship_palub; i++){
@@ -365,6 +369,10 @@ public class WarShip {
 
     public static void  create_hand_ship2(int[][] array3, int[] ships) {
         sh = 1;
+        System.out.println("You have to input two coordinates x and y, beginning with 4palub ship, number of the ship - 1");
+        System.out.println("3palub ship, number of the ship - 2");
+        System.out.println("2palub ship, number of the ship - 3");
+        System.out.println("1palub ship, number of the ship - 1");
         second_hand_ship(array3, 4, 1, ships);
         second_hand_ship(array3, 3, 2, ships);
         second_hand_ship(array3, 2, 3, ships);
