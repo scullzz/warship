@@ -202,101 +202,58 @@ public class WarShip {
     }
     //карта
     public static void result(int[][] array1, int[][] array2, int[][] array3, int[][] array4) {
-        create(array1, array2);
-        System.out.print("\n");
-        create(array3, array4);
+        second_create(array3, array4);
     }
     //сама игра очередь ходов попадение уничтожение
-    public static void GAME11(int[][] array1, int[][] array2, int[][] array3, int[][] array4, int[] ships)  {
+    public static void GAME11(int[][] array1, int[][] array2, int[][] array3, int[][] array4, int[] ships) {
         boolean game = false;
         int x;
         int y;
         for (int i = 0; i < 1000; i++) {
             result(array1, array2, array3, array4);
-
-            if (i % 2 == 0) {
-
-                System.out.print("First player's move\n");
-                System.out.print("Enter your cordinates\n");
-                Scanner in = new Scanner(System.in);
-                System.out.print("Input the digit: ");
-                x = in.nextInt();
-                System.out.print("Input the digit: ");
-                y = in.nextInt();
-
-                if (array1[x][y] >= 1) {
-                    ships[array1[x][y]]--;
-                    if (ships[array1[x][y]] <= 0) {
-                        System.out.print("The ship was destroyed\n");
-                    }
-                    else {
-                        System.out.print("You hit the ship\n");
-                    }
-                    array1[x][y] = -1;
+            System.out.print("Player your move\n");
+            System.out.print("Enter your cordinates\n");
+            Scanner in = new Scanner(System.in);
+            System.out.print("Input your digit: ");
+            x = in.nextInt();
+            System.out.print("Input your digit: ");
+            y = in.nextInt();
+            if (array3[x][y] >= 1) {
+                ships[array3[x][y]]--;
+                if (ships[array3[x][y]] <= 0) {
+                    System.out.print("The ship was destroyed\n");
                 } else {
-                    System.out.print("Miss\n");
+                    System.out.print("You hit the ship\n");
                 }
 
-                array2[x][y] = 1;
+                array3[x][y] = -1;
 
-                boolean game_over = false;
-                for (i = 0; i < array2.length; i++) {
-                    for (int j = 0; j < array2.length; j++) {
-                        if (array2[i][j] == 1) {
-                            game_over = true;
-                        }
-                    }
-                }
-                if (game_over == false) {
-                    System.out.print("First player - Win\n");
-                    break;
-                }
-            }
-            if (i % 2 == 1) {
-                System.out.print("Second plater's move\n");
-                System.out.print("Enter your cordinates\n");
-                Scanner in = new Scanner(System.in);
-                System.out.print("Input your digit: ");
-                x = in.nextInt();
-                System.out.print("Input your digit: ");
-                y = in.nextInt();
-                if (array3[x][y] >= 1) {
-                    ships[array3[x][y]]--;
-                    if (ships[array3[x][y]] <= 0) {
-                        System.out.print("The ship was destroyed\n");
-                    } else {
-                        System.out.print("You hit the ship\n");
-                    }
-
-                    array3[x][y] = -1;
-
-                } else {
-                    System.out.print("Miss\n");
-                }
-
-                array4[x][y] = 1;
-
-                boolean game_over = false;
-                for (i = 0; i < array4.length; i++) {
-                    for (int j = 0; j < array4.length; j++) {
-                        if (array4[i][j] == 1) {
-                            game_over = true;
-                        }
-                    }
-                }
-                if (game_over == false) {
-                    System.out.print("Second player - WIN\n");
-                    break;
-                }
+            } else {
+                System.out.print("Miss\n");
             }
 
+            array4[x][y] = 1;
+
+            boolean game_over = false;
+            for (i = 0; i < array4.length; i++) {
+                for (int j = 0; j < array4.length; j++) {
+                    if (array4[i][j] == 1) {
+                        game_over = true;
+                    }
+                }
+            }
+            if (game_over == false) {
+                System.out.print("Second player - WIN\n");
+                break;
+            }
         }
+
     }
     public static void second_hand_ship(int[][] array3, int ship_palub, int ship_count, int[] ships){
-        System.out.print("if you push 0 the ship set to in right direction\n" +
-                "if you push 1 the ship set to in top down direction\n" +
-                "if you push 2 the ship set to in left direction\n" +
-                "if you push 3 the ship set to in upward direction\n");
+        System.out.print("if you push 0 the ship set to in down direction\n" +
+                "if you push 1 the ship set to in top right direction\n" +
+                "if you push 2 the ship set to in upward direction\n" +
+                "if you push 3 the ship set to in left direction\n");
         boolean limit = true;
         int x;
         int y;
@@ -338,6 +295,7 @@ public class WarShip {
                     }
                 }
             }while(!limit);
+
             if(limit){
                 x = tmp_x;
                 y = tmp_y;
@@ -379,6 +337,9 @@ public class WarShip {
     }
 
     public static void main(String[] args){
+        System.out.println("Ставите сначало 4 палубный он один и потом идете дальше");
+        System.out.println("3 палубных 2");
+        System.out.println("2 палубных 3 и однопалубных тоже 3 это потому что массив кораблей состоит из 9 почему не 10 я сам не помню но там была какая то ошибка из за того что этот массив больше 9");
         int[][] a1 = new int[10][10];
         int[][] a2 = new int[10][10];
         int[][] a3 = new int[10][10];
@@ -395,7 +356,6 @@ public class WarShip {
         for(int i =0; i < 10; i++){
             s[i] = 0;
         }
-        create_hand_ship2(a1, s);
         create_hand_ship2(a3, s);
         GAME11(a1, a2, a3, a4, s);
     }
